@@ -12,7 +12,7 @@ class UserController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
-            'token' => 'required|unique:users',
+            'token' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -94,7 +94,7 @@ class UserController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
-            'token' => 'required|unique:users',
+            'token' => 'required',
         ]);
 
         if ($validator->fails()) {
