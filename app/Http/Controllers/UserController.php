@@ -41,14 +41,14 @@ class UserController extends Controller
 
         $user = new User();
         $user->email = $request->email;
-        $user->username = $request->username;
+        $user->fullname = $request->fullname;
         $user->token = $request->token;
         $user->roles = 'user';
 
         $user->save();
 
         $data['email'] = $user->email;
-        $data['username'] = $user->username;
+        $data['fullname'] = $user->fullname;
         $data['token'] = $user->token;
 
         return response()->json([
@@ -62,7 +62,8 @@ class UserController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'email' => 'required|email|unique:users',
-            'username' => 'required|unique:users',
+            'fullname' => 'required',
+            'token' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -75,13 +76,15 @@ class UserController extends Controller
 
         $user = new User();
         $user->email = $request->email;
-        $user->username = $request->username;
+        $user->fullname = $request->fullname;
+        $user->token = $request->token;
         $user->roles = 'user';
 
         $user->save();
 
         $data['email'] = $user->email;
-        $data['username'] = $user->username;
+        $data['fullname'] = $user->fullname;
+        $data['token'] = $user->token;
 
         return response()->json([
             'success' => true,
