@@ -156,7 +156,7 @@ class UserController extends Controller
         }
 
         $user->token = null;
-        $user->save();
+        $user->update();
 
         $data['email'] = $user->email;
         $data['token'] = $user->token;
@@ -165,6 +165,90 @@ class UserController extends Controller
             'success' => true,
             'message' => 'Logout Berhasil',
             'data' => $data
+        ]);
+    }
+
+    public function profile(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'token' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Load Profile Gagal',
+                'data' => $validator->errors()
+            ]);
+        }
+
+        $user = User::where('token', $request->token)->first();
+
+        if (!$user) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Token Tidak Ditemukan',
+                'data' => null
+            ]);
+        }
+
+        $user->makeHidden(['roles', 'token', 'created_at', 'updated_at']);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Load Profile Berhasil',
+            'data' => $user
+        ]);
+    }
+
+    public function update_profile(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'token' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Update Profile Gagal',
+                'data' => $validator->errors()
+            ]);
+        }
+
+        $user = User::where('token', $request->token)->first();
+
+        if (!$user) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Token Tidak Ditemukan',
+                'data' => null
+            ]);
+        }
+
+        if ($request->fullname) {
+            $user->fullname = $request->fullname;
+        }
+        if ($request->address) {
+            $user->address = $request->address;
+        }
+        if ($request->phone) {
+            $user->phone = $request->phone;
+        }
+        if ($request->kk) {
+            $user->kk = $request->kk;
+        }
+        if ($request->rekening) {
+            $user->rekening = $request->rekening;
+        }
+
+        $user->update();
+
+        $user->makeHidden(['roles', 'token', 'created_at', 'updated_at']);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Update Profile Berhasil',
+            'data' => $user
         ]);
     }
 }

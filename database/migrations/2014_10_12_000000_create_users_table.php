@@ -19,6 +19,10 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password')->nullable();
             $table->string('token')->nullable();
+            $table->string('address')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('kk')->nullable();
+            $table->string('rekening')->nullable();
             $table->string('roles');
             $table->rememberToken();
             $table->timestamps();

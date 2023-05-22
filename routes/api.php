@@ -19,3 +19,5 @@ Route::post('/google', [UserController::class, 'google']);
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/logout', [UserController::class, 'logout']);
+Route::get('/profile', [UserController::class, 'profile']);
+Route::post('/profile', [UserController::class, 'update_profile']);
