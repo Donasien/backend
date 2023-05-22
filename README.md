@@ -1,7 +1,7 @@
 Dokumentasi API :
 <br>
 <br>
-{app}/api/google (POST) : Mengirim data email, fullname, token Untuk Menyimpan Data berupa email, fullname, token jika terjadi register, dan Mengirim data email, token Untuk Mengupdate Data berupa token jika terjadi login
+{app}/api/google (POST) : Mengirim data email, fullname, token Untuk Menyimpan Data berupa email, fullname, token jika terjadi register (Akun Google Yang Baru Login), dan Mengirim data email, token Untuk Mengupdate Data berupa token jika terjadi login (Akun Google Yang Sudah Login)
 <br>
 <br>
 {app}/api/register (POST) : Mengirim data email, fullname, token Untuk Menyimpan Data berupa email, fullname, token jika terjadi register
