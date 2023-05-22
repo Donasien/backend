@@ -11,3 +11,9 @@ Dokumentasi API :
 <br>
 <br>
 {app}/api/logout (POST) : Mengirim data token Untuk Menghapus Data berupa token jika terjadi logout
+<br>
+<br>
+{app}/api/profile (GET) : Mengirim token di parameter Untuk Menampilkan Data profile
+<br>
+<br>
+{app}/api/profile (POST) : Mengirim data token dan data yang ingin di edit (fullname, address, phone, kk, rekening) Untuke update Profile
