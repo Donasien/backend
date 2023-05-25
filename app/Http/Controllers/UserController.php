@@ -228,6 +228,9 @@ class UserController extends Controller
         if ($request->fullname) {
             $user->fullname = $request->fullname;
         }
+        if ($request->email) {
+            $user->email = $request->email;
+        }
         if ($request->address) {
             $user->address = $request->address;
         }

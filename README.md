@@ -16,4 +16,10 @@ Dokumentasi API :
 {app}/api/profile (GET) : Mengirim token di parameter Untuk Menampilkan Data profile
 <br>
 <br>
-{app}/api/profile (POST) : Mengirim data token dan data yang ingin di edit (fullname, address, phone, kk, rekening) Untuke update Profile
+{app}/api/profile (POST) : Mengirim data token dan data yang ingin di edit (fullname, email, address, phone, kk, rekening) Untuke update Profile
+<br>
+<br>
+{app}/api/submit-donation (POST) : Mengirim data token dan data yang akan disubmit (fullname, gender, kk, phone, address, title, target_amount, end_date, description, cover_photo, ktp_photo, medical_photo, disease_photo, house_photo) Untuk submit galang donasi
+<br>
+<br>
+{app}/api/donation-status (GET) : Mengirim token di parameter Untuk Menampilkan Data Status Galang Donasi

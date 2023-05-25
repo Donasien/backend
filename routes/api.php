@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DonationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,5 @@ Route::post('/login', [UserController::class, 'login']);
 Route::post('/logout', [UserController::class, 'logout']);
 Route::get('/profile', [UserController::class, 'profile']);
 Route::post('/profile', [UserController::class, 'update_profile']);
+Route::post('/submit-donation', [DonationController::class, 'submit_donation']);
+Route::get('/donation-status', [DonationController::class, 'donation_status']);
