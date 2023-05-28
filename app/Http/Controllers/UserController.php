@@ -254,4 +254,15 @@ class UserController extends Controller
             'data' => $user
         ]);
     }
+
+    public function all_user()
+    {
+        $user = User::get();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'All User',
+            'data' => $user
+        ]);
+    }
 }
