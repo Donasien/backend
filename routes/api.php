@@ -22,6 +22,8 @@ Route::post('/login', [UserController::class, 'login']);
 Route::post('/logout', [UserController::class, 'logout']);
 Route::get('/profile', [UserController::class, 'profile']);
 Route::post('/profile', [UserController::class, 'update_profile']);
+Route::get('/all-donation', [DonationController::class, 'all_donation']);
 Route::post('/submit-donation', [DonationController::class, 'submit_donation']);
 Route::get('/donation-status', [DonationController::class, 'donation_status']);
+
 Route::get('/all-user', [UserController::class, 'all_user']);

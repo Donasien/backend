@@ -9,6 +9,17 @@ use Illuminate\Support\Facades\Validator;
 
 class DonationController extends Controller
 {
+    public function all_donation()
+    {
+        $donation = Donation::get();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Load Semua Donasi Berhasil',
+            'data' => $donation
+        ]);
+    }
+
     public function submit_donation(Request $request)
     {
         $validator = Validator::make($request->all(), [
