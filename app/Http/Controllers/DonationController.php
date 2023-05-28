@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Donation;
 use Illuminate\Http\Request;
@@ -14,6 +15,13 @@ class DonationController extends Controller
         $donation = Donation::get();
 
         $donation->makeHidden(['user_id', 'kk', 'phone', 'address', 'ktp_photo', 'medical_photo', 'disease_photo', 'house_photo', 'created_at', 'updated_at']);
+
+        $today = Carbon::today();
+
+        $donation = $donation->filter(function ($item) use ($today) {
+            $item->days_left = $today->diffInDays($item->end_date);
+            return $item->days_left > 0;
+        });
 
         return response()->json([
             'success' => true,
@@ -33,6 +41,10 @@ class DonationController extends Controller
                 'data' => null
             ]);
         }
+
+        $today = Carbon::today();
+
+        $donation->days_left = $today->diffInDays($donation->end_date);
 
         $donation->makeHidden(['user_id', 'kk', 'phone', 'address', 'ktp_photo', 'medical_photo', 'disease_photo', 'house_photo', 'created_at', 'updated_at']);
 

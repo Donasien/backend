@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('title');
             $table->integer('target_amount');
             $table->integer('latest_amount')->default(0);
-            $table->string('end_date');
+            $table->date('end_date');
             $table->string('description');
             $table->string('cover_photo');
             $table->string('ktp_photo');
