@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('title');
-            $table->string('target_amount');
-            $table->string('latest_amount')->nullable();
+            $table->integer('target_amount');
+            $table->integer('latest_amount')->default(0);
             $table->string('end_date');
             $table->string('description');
             $table->string('cover_photo');

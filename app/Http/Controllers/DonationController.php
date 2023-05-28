@@ -13,10 +13,33 @@ class DonationController extends Controller
     {
         $donation = Donation::get();
 
+        $donation->makeHidden(['user_id', 'kk', 'phone', 'address', 'ktp_photo', 'medical_photo', 'disease_photo', 'house_photo', 'created_at', 'updated_at']);
+
         return response()->json([
             'success' => true,
             'message' => 'Load Semua Donasi Berhasil',
-            'data' => $donation
+            'data' => $donation,
+        ]);
+    }
+
+    public function detail_donation(Request $request)
+    {
+        $donation = Donation::where('id', $request->donation_id)->with('donor')->first();
+
+        if (!$donation) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Id Tidak Ditemukan',
+                'data' => null
+            ]);
+        }
+
+        $donation->makeHidden(['user_id', 'kk', 'phone', 'address', 'ktp_photo', 'medical_photo', 'disease_photo', 'house_photo', 'created_at', 'updated_at']);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Load Detail Donasi Berhasil',
+            'data' => $donation,
         ]);
     }
 
@@ -30,7 +53,7 @@ class DonationController extends Controller
             'phone' => 'required',
             'address' => 'required',
             'title' => 'required',
-            'target_amount' => 'required',
+            'target_amount' => 'required|integer',
             'end_date' => 'required',
             'description' => 'required',
             'cover_photo' => 'required',
@@ -124,6 +147,8 @@ class DonationController extends Controller
         }
 
         $donation = Donation::where('user_id', $user->id)->get();
+
+        $donation->makeHidden(['user_id', 'kk', 'phone', 'address', 'ktp_photo', 'medical_photo', 'disease_photo', 'house_photo', 'created_at', 'updated_at']);
 
         return response()->json([
             'success' => true,
