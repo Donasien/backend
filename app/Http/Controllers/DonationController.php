@@ -70,19 +70,24 @@ class DonationController extends Controller
         $donation->end_date = $request->end_date;
         $donation->description = $request->description;
         if ($request->file('cover_photo')) {
-            $donation->cover_photo = $request->file('cover_photo')->store('raise-donation-photo');
+            $baseUrl = url('/');
+            $donation->cover_photo = $baseUrl . '/storage/' . $request->file('cover_photo')->store('raise-donation-photo');
         }
         if ($request->file('ktp_photo')) {
-            $donation->ktp_photo = $request->file('ktp_photo')->store('raise-donation-photo');
+            $baseUrl = url('/');
+            $donation->ktp_photo = $baseUrl . '/storage/' . $request->file('ktp_photo')->store('raise-donation-photo');
         }
         if ($request->file('medical_photo')) {
-            $donation->medical_photo = $request->file('medical_photo')->store('raise-donation-photo');
+            $baseUrl = url('/');
+            $donation->medical_photo = $baseUrl . '/storage/' . $request->file('medical_photo')->store('raise-donation-photo');
         }
         if ($request->file('disease_photo')) {
-            $donation->disease_photo = $request->file('disease_photo')->store('raise-donation-photo');
+            $baseUrl = url('/');
+            $donation->disease_photo = $baseUrl . '/storage/' . $request->file('disease_photo')->store('raise-donation-photo');
         }
         if ($request->file('house_photo')) {
-            $donation->house_photo = $request->file('house_photo')->store('raise-donation-photo');
+            $baseUrl = url('/');
+            $donation->house_photo = $baseUrl . '/storage/' . $request->file('house_photo')->store('raise-donation-photo');
         }
 
         $donation->save();
