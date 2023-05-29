@@ -23,37 +23,24 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @php
-                                $nomor = 1;
-                            @endphp
-                            @foreach ($ar_donasi as $row)
                             <tr>
-                                <td>{{ $nomor++ }}</td>
-                                <td>{{ $row->nama }}</td>
-                                <td>{{ $row->gender }}</td>
-                                <td>{{ $row->no_kk }}</td>
-                                <td>{{ $row->no_telp }}</td>
-                                <td>{{ $row->alamat }}</td>
+                                <td>1</td>
+                                <td>Faruq</td>
+                                <td>Laki Laki</td>
+                                <td>732</td>
+                                <td>083</td>
+                                <td>jombang</td>
                                 <td width="20%">
-                                    @php
-                                    if(!empty($row->file)){
-                                    @endphp
-                                        <img src="{{ asset('images/Donasi')}}/{{ $row->file }}" width="80%" />
-                                    @php
-                                    } 
-                                    @endphp
+                                    <i></i> Icon
                                 </td>
-                                    <form method="POST" action="{{ route('donasi.destroy', $row->id) }}">
-                                        @csrf
-                                        @method('delete')
-                                        <a href="{{ route('donasi.edit', $row->id) }}" class="btn btn-sm btn-primary m-1"><i
+                                    <form method="POST" action="#">
+                                        <a href="#" class="btn btn-sm btn-primary m-1"><i
                                                 class="fas fa-pen"></i></a>
                                         <button type="submit" class="btn btn-sm btn-danger delete m-1"><i
                                                 class="fas fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>
-                        @endforeach
                         </tbody>
                     </table>
                 </div>

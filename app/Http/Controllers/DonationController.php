@@ -32,7 +32,7 @@ class DonationController extends Controller
 
     public function detail_donation(Request $request)
     {
-        $donation = Donation::where('id', $request->donation_id)->with('donor')->first();
+        $donation = Donation::where('id', $request->donation_id)->with('user')->with('donor')->first();
 
         if (!$donation) {
             return response()->json([
@@ -47,6 +47,7 @@ class DonationController extends Controller
         $donation->days_left = $today->diffInDays($donation->end_date);
 
         $donation->makeHidden(['user_id', 'kk', 'phone', 'address', 'ktp_photo', 'medical_photo', 'disease_photo', 'house_photo', 'created_at', 'updated_at']);
+        $donation->user->makeHidden(['roles', 'token', 'kk', 'rekening', 'created_at', 'updated_at']);
 
         return response()->json([
             'success' => true,
