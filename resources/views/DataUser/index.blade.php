@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Donasi')
+@section('title', 'User Data')
 
 @section('container')
     <div class="container-fluid">
@@ -15,21 +15,25 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Lengkap</th>
-                                <th>Gender</th>
-                                <th>No KK</th>
-                                <th>No Telp</th>
+                                <th>Email</th>
                                 <th>Alamat</th>
+                                <th>No Telp</th>
+                                <th>No KK</th>
+                                <th>Rekening</th>
+                                <th>Role</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>Jamal Yanto</td>
-                                <td>Laki - Laki</td>
-                                <td>73874824878877</td>
-                                <td>087837828392</td>
-                                <td>Jakarta</td>
+                                <td>Fulan Hidayat</td>
+                                <td>fulan@gmail.com</td>
+                                <td>Bandung</td>
+                                <td>083562236728</td>
+                                <td>636273676327677</td>
+                                <td>88229899128</td>
+                                <td>Admin</td>
                                 <td>
                                     <button type="submit" class="btn btn-primary m-1"><i class="ti ti-edit"></i></button>
                                     <button type="submit" class="btn btn-danger delete m-1"><i class="ti ti-trash"></i></button>
@@ -37,11 +41,13 @@
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td>Jamal Yanto</td>
-                                <td>Laki - Laki</td>
-                                <td>73874824878877</td>
-                                <td>087837828392</td>
-                                <td>Jakarta</td>
+                                <td>Fulan Hidayat</td>
+                                <td>fulan@gmail.com</td>
+                                <td>Bandung</td>
+                                <td>083562236728</td>
+                                <td>636273676327677</td>
+                                <td>88229899128</td>
+                                <td>Admin</td>
                                 <td>
                                     <button type="submit" class="btn btn-primary m-1"><i class="ti ti-edit"></i></button>
                                     <button type="submit" class="btn btn-danger delete m-1"><i class="ti ti-trash"></i></button>
@@ -49,11 +55,13 @@
                             </tr>
                             <tr>
                                 <td>3</td>
-                                <td>Jamal Yanto</td>
-                                <td>Laki - Laki</td>
-                                <td>73874824878877</td>
-                                <td>087837828392</td>
-                                <td>Jakarta</td>
+                                <td>Fulan Hidayat</td>
+                                <td>fulan@gmail.com</td>
+                                <td>Bandung</td>
+                                <td>083562236728</td>
+                                <td>636273676327677</td>
+                                <td>88229899128</td>
+                                <td>Admin</td>
                                 <td>
                                     <button type="submit" class="btn btn-primary m-1"><i class="ti ti-edit"></i></button>
                                     <button type="submit" class="btn btn-danger delete m-1"><i class="ti ti-trash"></i></button>
@@ -61,11 +69,13 @@
                             </tr>
                             <tr>
                                 <td>4</td>
-                                <td>Jamal Yanto</td>
-                                <td>Laki - Laki</td>
-                                <td>73874824878877</td>
-                                <td>087837828392</td>
-                                <td>Jakarta</td>
+                                <td>Fulan Hidayat</td>
+                                <td>fulan@gmail.com</td>
+                                <td>Bandung</td>
+                                <td>083562236728</td>
+                                <td>636273676327677</td>
+                                <td>88229899128</td>
+                                <td>Admin</td>
                                 <td>
                                     <button type="submit" class="btn btn-primary m-1"><i class="ti ti-edit"></i></button>
                                     <button type="submit" class="btn btn-danger delete m-1"><i class="ti ti-trash"></i></button>
@@ -73,11 +83,13 @@
                             </tr>
                             <tr>
                                 <td>5</td>
-                                <td>Jamal Yanto</td>
-                                <td>Laki - Laki</td>
-                                <td>73874824878877</td>
-                                <td>087837828392</td>
-                                <td>Jakarta</td>
+                                <td>Fulan Hidayat</td>
+                                <td>fulan@gmail.com</td>
+                                <td>Bandung</td>
+                                <td>083562236728</td>
+                                <td>636273676327677</td>
+                                <td>88229899128</td>
+                                <td>Admin</td>
                                 <td>
                                     <button type="submit" class="btn btn-primary m-1"><i class="ti ti-edit"></i></button>
                                     <button type="submit" class="btn btn-danger delete m-1"><i class="ti ti-trash"></i></button>

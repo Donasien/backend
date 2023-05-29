@@ -17,6 +17,14 @@ Route::get('/', function () {
     return view('Dashboard.dashboard');
 });
 
-Route::get('/donasi', function () {
+Route::get('/Donasi', function () {
     return view('Donations.index');
+});
+
+Route::get('/Donatur', function () {
+    return view('Donatur.index');
+});
+
+Route::get('/DataUser', function () {
+    return view('DataUser.index');
 });
