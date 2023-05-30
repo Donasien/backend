@@ -24,7 +24,7 @@ Route::post('/logout', [UserController::class, 'logout']);
 Route::get('/profile', [UserController::class, 'profile']);
 Route::post('/profile', [UserController::class, 'update_profile']);
 Route::get('/all-donation', [DonationController::class, 'all_donation']);
-Route::get('/detail-donation/{id}', [DonationController::class, 'detail_donation']);
+Route::get('/detail-donation', [DonationController::class, 'detail_donation']);
 Route::post('/submit-donation', [DonationController::class, 'submit_donation']);
 Route::get('/donation-status', [DonationController::class, 'donation_status']);
 Route::get('/donation-history', [DonorController::class, 'donation_history']);
