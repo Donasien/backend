@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('kk')->nullable();
             $table->string('rekening')->nullable();
+            $table->string('photo')->nullable();
             $table->string('roles');
             $table->rememberToken();
             $table->timestamps();
