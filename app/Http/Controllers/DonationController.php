@@ -30,9 +30,9 @@ class DonationController extends Controller
         ]);
     }
 
-    public function detail_donation(Request $request)
+    public function detail_donation($id)
     {
-        $donation = Donation::where('id', $request->donation_id)->with('user')->with('donor')->first();
+        $donation = Donation::where('id', $id)->with('user')->with('donor')->first();
 
         if (!$donation) {
             return response()->json([
