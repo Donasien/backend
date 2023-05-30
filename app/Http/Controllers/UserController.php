@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -247,6 +248,12 @@ class UserController extends Controller
         }
         if ($request->file('photo')) {
             $baseUrl = url('/');
+
+            if ($user->photo && strpos($user->photo, $baseUrl . '/storage/') !== false) {
+                $oldPhotoPath = str_replace($baseUrl . '/storage/', '', $user->photo);
+                Storage::delete($oldPhotoPath);
+            }
+
             $user->photo = $baseUrl . '/storage/' . $request->file('photo')->store('user-photo');
         }
 
