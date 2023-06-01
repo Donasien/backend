@@ -21,7 +21,7 @@
                   <i class="ti ti-layout-dashboard"></i>
                   <p class="mb-0 fs-3">Dashboard</p>
                 </a>
-                <a href="#" class="btn btn-outline-danger mx-3 mt-2 d-block">Logout</a>
+                <a href="{{ url('/login')}}" class="btn btn-outline-danger mx-3 mt-2 d-block">Logout</a>
               </div>
             </div>
           </li>

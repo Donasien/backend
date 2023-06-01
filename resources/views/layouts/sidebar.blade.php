@@ -4,8 +4,7 @@
     <div>
       <div class="brand-logo d-flex align-items-center justify-content-between">
         <a href="{{ url('/') }}" class="text-nowrap logo-img">
-          <!-- <img src="{{ asset('assets/images/logos/donasien.png') }}" width="50" alt="" /> -->
-          <h2>Donasien</h2>
+          <img src="{{ asset('assets/images/logos/donasien-logo.png') }}" width="150" alt="" />
         </a>
         <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
           <i class="ti ti-x fs-8"></i>
@@ -58,6 +57,18 @@
               <span class="hide-menu">Data User</span>
             </a>
           </li>
+          <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">AUTH</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/login" aria-expanded="false">
+                <span>
+                  <i class="ti ti-login"></i>
+                </span>
+                <span class="hide-menu">Login</span>
+              </a>
+            </li>
         </ul>
       </nav>
       <!-- End Sidebar navigation -->
