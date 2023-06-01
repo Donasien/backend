@@ -18,8 +18,8 @@ use App\Http\Controllers\DonationController;
 
 
 
-Route::get('/', [UserController::class, 'login_admin'])->name('login');
-Route::post('/', [UserController::class, 'action_login']);
+Route::get('/', [UserController::class, 'login_admin'])->name('login')->middleware('guest');
+Route::post('/', [UserController::class, 'action_login'])->middleware('guest');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [UserController::class, 'dashboard_admin']);
