@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Donor;
+use App\Models\Donation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -268,14 +271,47 @@ class UserController extends Controller
         ]);
     }
 
-    public function all_user()
+    public function login_admin()
     {
-        $user = User::get();
+        return view('Login.login');
+    }
 
-        return response()->json([
-            'success' => true,
-            'message' => 'All User',
-            'data' => $user
-        ]);
+    public function action_login(Request $request)
+    {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            if (auth()->user()->roles == 'admin') {
+                return redirect('/dashboard');
+            } else {
+                Auth::logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+                return back()->with('failed', 'Username atau Password anda salah');
+            }
+        }
+        return back()->with('failed', 'Username atau Password anda salah');
+    }
+    
+    public function logout_admin(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
+    }
+
+    public function dashboard_admin()
+    {
+        $user = User::where('roles', 'user')->get();
+        $donation = Donation::get();
+        $donor = Donor::get();
+
+        return view('Dashboard.dashboard', compact('user', 'donation', 'donor'));
+    }
+
+    public function data_user()
+    {
+        $user = User::where('roles', 'user')->get();
+
+        return view('DataUser.index', compact('user'));
     }
 }

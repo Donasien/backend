@@ -169,4 +169,18 @@ class DonationController extends Controller
             'data' => $donation
         ]);
     }
+
+    public function data_donation()
+    {
+        $donation = Donation::get();
+
+        $today = Carbon::today();
+
+        $donation = $donation->filter(function ($item) use ($today) {
+            $item->days_left = $today->diffInDays($item->end_date);
+            return $item->days_left > 0;
+        });
+
+        return view('Donations.index', compact('donation'));
+    }
 }

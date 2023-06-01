@@ -5,84 +5,47 @@
 @section('container')
     <div class="container-fluid">
         <div class="card">
-            <div class="d-flex justify-content-between" style="margin-bottom:-20px;">
-                <a href="#" class="btn btn-primary m-4">Tambah Data</a>
-            </div>
             <div class="card-body">
+                <div class="d-flex justify-content-between mb-1">
+                    <h5 class="card-title fw-semibold">Data Donasi</h5>
+                    <a href="#" class="btn btn-primary">Tambah Data</a>
+                </div>
                 <div class="table-responsive">
                     <table class="table table-striped" id="table1">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Lengkap</th>
-                                <th>Gender</th>
-                                <th>No KK</th>
-                                <th>No Telp</th>
-                                <th>Alamat</th>
+                                <th>Title</th>
+                                <th>Target Donasi</th>
+                                <th>Total Donasi</th>
+                                <th>Berakhir</th>
+                                <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Jamal Yanto</td>
-                                <td>Laki - Laki</td>
-                                <td>73874824878877</td>
-                                <td>087837828392</td>
-                                <td>Jakarta</td>
-                                <td>
-                                    <button type="submit" class="btn btn-primary m-1"><i class="ti ti-edit"></i></button>
-                                    <button type="submit" class="btn btn-danger delete m-1"><i class="ti ti-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Jamal Yanto</td>
-                                <td>Laki - Laki</td>
-                                <td>73874824878877</td>
-                                <td>087837828392</td>
-                                <td>Jakarta</td>
-                                <td>
-                                    <button type="submit" class="btn btn-primary m-1"><i class="ti ti-edit"></i></button>
-                                    <button type="submit" class="btn btn-danger delete m-1"><i class="ti ti-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Jamal Yanto</td>
-                                <td>Laki - Laki</td>
-                                <td>73874824878877</td>
-                                <td>087837828392</td>
-                                <td>Jakarta</td>
-                                <td>
-                                    <button type="submit" class="btn btn-primary m-1"><i class="ti ti-edit"></i></button>
-                                    <button type="submit" class="btn btn-danger delete m-1"><i class="ti ti-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Jamal Yanto</td>
-                                <td>Laki - Laki</td>
-                                <td>73874824878877</td>
-                                <td>087837828392</td>
-                                <td>Jakarta</td>
-                                <td>
-                                    <button type="submit" class="btn btn-primary m-1"><i class="ti ti-edit"></i></button>
-                                    <button type="submit" class="btn btn-danger delete m-1"><i class="ti ti-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Jamal Yanto</td>
-                                <td>Laki - Laki</td>
-                                <td>73874824878877</td>
-                                <td>087837828392</td>
-                                <td>Jakarta</td>
-                                <td>
-                                    <button type="submit" class="btn btn-primary m-1"><i class="ti ti-edit"></i></button>
-                                    <button type="submit" class="btn btn-danger delete m-1"><i class="ti ti-trash"></i></button>
-                                </td>
-                            </tr>
+                            @foreach ($donation as $item)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->title }}</td>
+                                    <td>{{ $item->target_amount }}</td>
+                                    <td>{{ $item->latest_amount }}</td>
+                                    <td>{{ $item->days_left }} Hari</td>
+                                    <td>
+                                        @if ($item->status == null)
+                                            Pending
+                                        @else
+                                            {{ $item->status }}
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <button type="submit" class="btn btn-primary m-1"><i
+                                                class="ti ti-edit"></i></button>
+                                        <button type="submit" class="btn btn-danger delete m-1"><i
+                                                class="ti ti-trash"></i></button>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

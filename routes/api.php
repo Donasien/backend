@@ -29,5 +29,3 @@ Route::post('/submit-donation', [DonationController::class, 'submit_donation']);
 Route::get('/donation-status', [DonationController::class, 'donation_status']);
 Route::get('/donation-history', [DonorController::class, 'donation_history']);
 Route::post('/donate', [DonorController::class, 'donate']);
-
-Route::get('/all-user', [UserController::class, 'all_user']);

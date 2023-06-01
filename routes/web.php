@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\DonorController;
+use App\Http\Controllers\DonationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,22 +17,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () {
-    return view('Dashboard.dashboard');
-});
 
-Route::get('/login', function () {
-    return view('Login.login');
-});
+Route::get('/', [UserController::class, 'login_admin'])->name('login');
+Route::post('/', [UserController::class, 'action_login']);
 
-Route::get('/Donasi', function () {
-    return view('Donations.index');
-});
-
-Route::get('/Donatur', function () {
-    return view('Donatur.index');
-});
-
-Route::get('/DataUser', function () {
-    return view('DataUser.index');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', [UserController::class, 'dashboard_admin']);
+    Route::get('/donasi', [DonationController::class, 'data_donation']);
+    Route::get('/donatur', [DonorController::class, 'data_donor']);
+    Route::get('/datauser', [UserController::class, 'data_user']);
+    Route::get('/logout', [UserController::class, 'logout_admin']);
 });

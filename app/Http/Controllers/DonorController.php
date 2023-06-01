@@ -117,4 +117,11 @@ class DonorController extends Controller
             'data' => $donor
         ]);
     }
+
+    public function data_donor()
+    {
+        $donor = Donor::get();
+
+        return view('Donatur.index', compact('donor'));
+    }
 }

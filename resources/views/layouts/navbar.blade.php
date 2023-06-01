@@ -17,11 +17,11 @@
             </a>
             <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
               <div class="message-body">
-                <a href="#" class="d-flex align-items-center gap-2 dropdown-item">
+                <a href="{{ url('/dashboard')}}" class="d-flex align-items-center gap-2 dropdown-item">
                   <i class="ti ti-layout-dashboard"></i>
                   <p class="mb-0 fs-3">Dashboard</p>
                 </a>
-                <a href="{{ url('/login')}}" class="btn btn-outline-danger mx-3 mt-2 d-block">Logout</a>
+                <a href="{{ url('/logout')}}" class="btn btn-outline-danger mx-3 mt-2 d-block">Logout</a>
               </div>
             </div>
           </li>
