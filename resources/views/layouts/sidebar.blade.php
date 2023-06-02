@@ -4,7 +4,7 @@
     <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
             <a href="{{ url('/') }}" class="text-nowrap logo-img">
-                <img src="{{ asset('assets/images/logos/donasien-logo.png') }}" width="150" alt="" />
+                <img src="{{ asset('assets/images/logos/donasien-logo-white.png') }}" width="170" alt="" />
             </a>
             <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                 <i class="ti ti-x fs-8"></i>
@@ -34,7 +34,7 @@
                         <span>
                             <i class="ti ti-heart-handshake"></i>
                         </span>
-                        <span class="hide-menu">Donations</span>
+                        <span class="hide-menu">Donation</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
@@ -54,7 +54,7 @@
                         <span>
                             <i class="ti ti-user"></i>
                         </span>
-                        <span class="hide-menu">Data User</span>
+                        <span class="hide-menu">User</span>
                     </a>
                 </li>
             </ul>

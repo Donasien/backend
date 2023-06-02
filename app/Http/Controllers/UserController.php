@@ -285,10 +285,10 @@ class UserController extends Controller
                 Auth::logout();
                 $request->session()->invalidate();
                 $request->session()->regenerateToken();
-                return back()->with('failed', 'Username atau Password anda salah');
+                return back()->with('failed', 'Email atau Password anda salah');
             }
         }
-        return back()->with('failed', 'Username atau Password anda salah');
+        return back()->with('failed', 'Email atau Password anda salah');
     }
     
     public function logout_admin(Request $request)
@@ -313,5 +313,12 @@ class UserController extends Controller
         $user = User::where('roles', 'user')->get();
 
         return view('DataUser.index', compact('user'));
+    }
+
+    public function delete_user($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->back();
     }
 }

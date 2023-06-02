@@ -27,10 +27,14 @@
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->address }}</td>
                                     <td>{{ $item->phone }}</td>
-                                    <td>
+                                    <td class="d-flex align-items-center">
                                         <button type="submit" class="btn btn-primary m-1"><i class="ti ti-edit"></i></button>
-                                        <button type="submit" class="btn btn-danger delete m-1"><i
-                                                class="ti ti-trash"></i></button>
+                                        <form action="{{ url('/datauser/' . $item->id) }}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-danger delete m-1"><i
+                                                    class="ti ti-trash"></i></button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

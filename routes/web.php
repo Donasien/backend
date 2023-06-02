@@ -26,5 +26,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/donasi', [DonationController::class, 'data_donation']);
     Route::get('/donatur', [DonorController::class, 'data_donor']);
     Route::get('/datauser', [UserController::class, 'data_user']);
+    Route::delete('/datauser/{id}', [UserController::class, 'delete_user']);
     Route::get('/logout', [UserController::class, 'logout_admin']);
 });

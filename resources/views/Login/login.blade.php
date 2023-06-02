@@ -25,6 +25,13 @@
                                         alt="">
                                 </a>
                                 <p class="text-center">Your Social Campaigns</p>
+                                @if (session('failed'))
+                                    <div class="alert alert-danger alert-dismissible show fade">
+                                        {{ session('failed') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+                                    </div>
+                                @endif
                                 <form action="{{ url('/') }}" method="POST">
                                     @csrf
                                     <div class="mb-3">
