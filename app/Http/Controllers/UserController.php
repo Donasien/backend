@@ -321,4 +321,11 @@ class UserController extends Controller
         $user->delete();
         return redirect()->back();
     }
+
+    public function read_user($id)
+    {
+        $user = User::where('id', $id)->first();
+
+        return view('DataUser.read', compact('user'));
+    }
 }

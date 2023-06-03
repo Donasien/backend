@@ -15,7 +15,7 @@
                                 <th>Nama Lengkap</th>
                                 <th>Donasi</th>
                                 <th>Jumlah Donasi</th>
-                                <th>Aksi</th>
+                                <th>Message</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -25,11 +25,30 @@
                                     <td>{{ $item->fullname }}</td>
                                     <td>{{ $item->donation->title }}</td>
                                     <td>{{ $item->donate }}</td>
-                                    <td>
-                                        <button type="submit" class="btn btn-primary m-1"><i
-                                                class="ti ti-edit"></i></button>
-                                        <button type="submit" class="btn btn-danger delete m-1"><i
-                                                class="ti ti-trash"></i></button>
+                                    <td class="d-flex align-items-center">
+                                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="{{ '#fotosampul' . $item->id }}">
+                                            <i class="ti ti-eye"></i>
+                                        </button>
+                                        <div class="modal fade" id="{{ 'fotosampul' . $item->id }}" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Message</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <textarea class="form-control" rows="10" disabled> @if ($item->message == null) Tidak Ada Pesan Yang Dikirimkan @else {{ $item->message }} @endif </textarea>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach

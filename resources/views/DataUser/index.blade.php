@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'User Data')
+@section('title', 'User')
 
 @section('container')
     <div class="container-fluid">
@@ -28,11 +28,11 @@
                                     <td>{{ $item->address }}</td>
                                     <td>{{ $item->phone }}</td>
                                     <td class="d-flex align-items-center">
-                                        <button type="submit" class="btn btn-primary m-1"><i class="ti ti-edit"></i></button>
+                                        <a href="{{ url('/datauser/' . $item->id) }}" class="btn btn-primary me-1"><i class="ti ti-eye"></i></a>
                                         <form action="{{ url('/datauser/' . $item->id) }}" method="post">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" class="btn btn-danger delete m-1"><i
+                                            <button onclick="return confirm('Yakin Untuk Menghapus?')" type="submit" class="btn btn-danger delete"><i
                                                     class="ti ti-trash"></i></button>
                                         </form>
                                     </td>

@@ -18,7 +18,7 @@
                     <span class="hide-menu">Home</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ url('/dashboard') }}" aria-expanded="false">
+                    <a class="sidebar-link {{ request()->is('dashboard*') ? 'active' : '' }}" href="{{ url('/dashboard') }}" aria-expanded="false">
                         <span>
                             <i class="ti ti-layout-dashboard"></i>
                         </span>
@@ -30,7 +30,7 @@
                     <span class="hide-menu">Donasi</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ url('/donasi') }}" aria-expanded="false">
+                    <a class="sidebar-link {{ request()->is('donasi*') ? 'active' : '' }}" href="{{ url('/donasi') }}" aria-expanded="false">
                         <span>
                             <i class="ti ti-heart-handshake"></i>
                         </span>
@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ url('/donatur') }}" aria-expanded="false">
+                    <a class="sidebar-link {{ request()->is('donatur*') ? 'active' : '' }}" href="{{ url('/donatur') }}" aria-expanded="false">
                         <span>
                             <i class="ti ti-heart-plus"></i>
                         </span>
@@ -50,7 +50,7 @@
                     <span class="hide-menu">DATA</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="/datauser" aria-expanded="false">
+                    <a class="sidebar-link {{ request()->is('datauser*') ? 'active' : '' }}" href="/datauser" aria-expanded="false">
                         <span>
                             <i class="ti ti-user"></i>
                         </span>

@@ -183,4 +183,67 @@ class DonationController extends Controller
 
         return view('Donations.index', compact('donation'));
     }
+
+    public function read_donation($id)
+    {
+        $donation = Donation::where('id', $id)->first();
+
+        $today = Carbon::today();
+
+        $donation->days_left = $today->diffInDays($donation->end_date);
+
+        return view('Donations.read', compact('donation'));
+    }
+
+    public function accept_donation($id)
+    {
+        $donation = Donation::where('id', $id)->first();
+
+        $donation->status = 'accept';
+
+        $donation->update();
+
+        return redirect('/donasi');
+    }
+
+    public function decline_donation($id)
+    {
+        $donation = Donation::where('id', $id)->first();
+
+        $donation->status = 'decline';
+
+        $donation->update();
+
+        return redirect('/donasi');
+    }
+
+    public function edit_donation($id)
+    {
+        $donation = Donation::where('id', $id)->first();
+
+        return view('Donations.edit', compact('donation'));
+    }
+
+    public function update_donation(Request $request, $id)
+    {
+        $donation = Donation::where('id', $id)->first();
+
+        $donation->fullname = $request->fullname;
+        $donation->gender = $request->gender;
+        $donation->kk = $request->kk;
+        $donation->phone = $request->phone;
+        $donation->address = $request->address;
+        $donation->title = $request->title;
+        $donation->target_amount = $request->target_amount;
+        $donation->end_date = $request->end_date;
+        $donation->description = $request->description;
+        if ($request->file('cover_photo')) {
+            $baseUrl = url('/');
+            $donation->cover_photo = $baseUrl . '/storage/' . $request->file('cover_photo')->store('raise-donation-photo');
+        }
+
+        $donation->update();
+
+        return redirect('/donasi');
+    }
 }

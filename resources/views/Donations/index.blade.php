@@ -6,10 +6,11 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
-                <div class="d-flex justify-content-between mb-1">
+                {{-- <div class="d-flex justify-content-between mb-1">
                     <h5 class="card-title fw-semibold">Data Donasi</h5>
                     <a href="#" class="btn btn-primary">Tambah Data</a>
-                </div>
+                </div> --}}
+                <h5 class="card-title fw-semibold mb-3">Data Donasi</h5>
                 <div class="table-responsive">
                     <table class="table table-striped" id="table1">
                         <thead>
@@ -38,11 +39,11 @@
                                             {{ $item->status }}
                                         @endif
                                     </td>
-                                    <td>
-                                        <button type="submit" class="btn btn-primary m-1"><i
-                                                class="ti ti-edit"></i></button>
-                                        <button type="submit" class="btn btn-danger delete m-1"><i
-                                                class="ti ti-trash"></i></button>
+                                    <td class="d-flex align-items-center">
+                                        <a href="{{ url('/donasi/' . $item->id) }}" class="btn btn-primary me-1"><i
+                                                class="ti ti-eye"></i></a>
+                                        <a href="{{ url('/donasi/edit/' . $item->id) }}" class="btn btn-secondary"><i
+                                                class="ti ti-edit"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
