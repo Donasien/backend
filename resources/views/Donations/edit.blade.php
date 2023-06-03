@@ -93,6 +93,7 @@
                             </div>
                         </div>
                         <div class="col-sm-12 d-flex justify-content-end mt-3">
+                            <a href="{{ url('/donasi') }}" class="btn btn-danger">Batal</a>
                             <button type="submit" class="btn btn-primary">Update</button>
                         </div>
                     </form>

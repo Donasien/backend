@@ -28,7 +28,7 @@
                                     <td>{{ $item->address }}</td>
                                     <td>{{ $item->phone }}</td>
                                     <td class="d-flex align-items-center">
-                                        <a href="{{ url('/datauser/' . $item->id) }}" class="btn btn-primary me-1"><i class="ti ti-eye"></i></a>
+                                        <a href="{{ url('/datauser/' . $item->id) }}" class="btn btn-primary me-2"><i class="ti ti-eye"></i></a>
                                         <form action="{{ url('/datauser/' . $item->id) }}" method="post">
                                             @csrf
                                             @method('delete')

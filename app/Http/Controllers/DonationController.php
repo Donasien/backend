@@ -12,7 +12,7 @@ class DonationController extends Controller
 {
     public function all_donation()
     {
-        $donation = Donation::get();
+        $donation = Donation::where('status', 'accept')->get();
 
         $donation->makeHidden(['user_id', 'kk', 'phone', 'address', 'ktp_photo', 'medical_photo', 'disease_photo', 'house_photo', 'created_at', 'updated_at']);
 
