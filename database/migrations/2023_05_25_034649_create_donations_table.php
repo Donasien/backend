@@ -16,11 +16,6 @@ return new class extends Migration
         Schema::create('donations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('fullname');
-            $table->string('gender');
-            $table->string('kk');
-            $table->string('phone');
-            $table->string('address');
             $table->string('title');
             $table->integer('target_amount');
             $table->integer('latest_amount')->default(0);
@@ -30,7 +25,7 @@ return new class extends Migration
             $table->string('ktp_photo');
             $table->string('medical_photo');
             $table->string('disease_photo');
-            $table->string('house_photo');
+            $table->string('sktm_photo');
             $table->string('status')->nullable();
             $table->timestamps();
         });

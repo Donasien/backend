@@ -40,6 +40,10 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-12 mb-3">
+                            <label class="mb-1">Jenis Kelamin</label>
+                            <input type="text" class="form-control" value="{{ $user->gender }}" disabled>
+                        </div>
+                        <div class="col-md-6 col-12 mb-3">
                             <label class="mb-1">Email</label>
                             <input type="text" class="form-control" value="{{ $user->email }}" disabled>
                         </div>

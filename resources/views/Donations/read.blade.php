@@ -71,23 +71,23 @@
                     <div class="row">
                         <div class="col-md-6 col-12 mb-3">
                             <label class="mb-1">Nama Lengkap</label>
-                            <input type="text" class="form-control" value="{{ $donation->fullname }}" disabled>
+                            <input type="text" class="form-control" value="{{ $donation->user->fullname }}" disabled>
                         </div>
                         <div class="col-md-6 col-12 mb-3">
                             <label class="mb-1">Jenis Kelamin</label>
-                            <input type="text" class="form-control" value="{{ $donation->gender }}" disabled>
+                            <input type="text" class="form-control" value="{{ $donation->user->gender }}" disabled>
                         </div>
                         <div class="col-md-6 col-12 mb-3">
                             <label class="mb-1">Nomor Kartu Keluarga</label>
-                            <input type="text" class="form-control" value="{{ $donation->kk }}" disabled>
+                            <input type="text" class="form-control" value="{{ $donation->user->kk }}" disabled>
                         </div>
                         <div class="col-md-6 col-12 mb-3">
                             <label class="mb-1">Nomor Telepon</label>
-                            <input type="text" class="form-control" value="{{ $donation->phone }}" disabled>
+                            <input type="text" class="form-control" value="{{ $donation->user->phone }}" disabled>
                         </div>
                         <div class="col-md-6 col-12 mb-3">
                             <label class="mb-1">Alamat Lengkap</label>
-                            <input type="text" class="form-control" value="{{ $donation->address }}" disabled>
+                            <input type="text" class="form-control" value="{{ $donation->user->address }}" disabled>
                         </div>
                     </div>
                     <h6 class="fw-semibold my-3">File Atau Dokumen</h6>
@@ -173,22 +173,22 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-12 mb-3">
-                            <label class="mb-1">Foto Rumah</label>
+                            <label class="mb-1">Foto SKTM</label>
                             <button type="button" class="btn btn-outline-primary form-control" data-bs-toggle="modal"
-                                data-bs-target="#fotorumah">
-                                Lihat Foto Rumah
+                                data-bs-target="#fotosktm">
+                                Lihat Foto SKTM
                             </button>
-                            <div class="modal fade" id="fotorumah" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            <div class="modal fade" id="fotosktm" tabindex="-1" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Foto Rumah</h1>
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Foto SKTM</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <img src="{{ $donation->house_photo }}" width="100%">
+                                            <img src="{{ $donation->sktm_photo }}" width="100%">
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-danger"

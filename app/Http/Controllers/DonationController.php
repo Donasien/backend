@@ -14,7 +14,7 @@ class DonationController extends Controller
     {
         $donation = Donation::where('status', 'accept')->get();
 
-        $donation->makeHidden(['user_id', 'kk', 'phone', 'address', 'ktp_photo', 'medical_photo', 'disease_photo', 'house_photo', 'created_at', 'updated_at']);
+        $donation->makeHidden(['user_id', 'ktp_photo', 'medical_photo', 'disease_photo', 'sktm_photo', 'created_at', 'updated_at']);
 
         $today = Carbon::today();
 
@@ -46,7 +46,7 @@ class DonationController extends Controller
 
         $donation->days_left = $today->diffInDays($donation->end_date);
 
-        $donation->makeHidden(['user_id', 'kk', 'phone', 'address', 'ktp_photo', 'medical_photo', 'disease_photo', 'house_photo', 'created_at', 'updated_at']);
+        $donation->makeHidden(['user_id', 'ktp_photo', 'medical_photo', 'disease_photo', 'sktm_photo', 'created_at', 'updated_at']);
         $donation->user->makeHidden(['roles', 'token', 'kk', 'rekening', 'created_at', 'updated_at']);
 
         return response()->json([
@@ -60,11 +60,6 @@ class DonationController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'token' => 'required',
-            'fullname' => 'required',
-            'gender' => 'required',
-            'kk' => 'required',
-            'phone' => 'required',
-            'address' => 'required',
             'title' => 'required',
             'target_amount' => 'required|integer',
             'end_date' => 'required',
@@ -73,7 +68,7 @@ class DonationController extends Controller
             'ktp_photo' => 'required',
             'medical_photo' => 'required',
             'disease_photo' => 'required',
-            'house_photo' => 'required',
+            'sktm_photo' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -96,11 +91,6 @@ class DonationController extends Controller
 
         $donation = new Donation();
         $donation->user_id = $user->id;
-        $donation->fullname = $request->fullname;
-        $donation->gender = $request->gender;
-        $donation->kk = $request->kk;
-        $donation->phone = $request->phone;
-        $donation->address = $request->address;
         $donation->title = $request->title;
         $donation->target_amount = $request->target_amount;
         $donation->end_date = $request->end_date;
@@ -121,9 +111,9 @@ class DonationController extends Controller
             $baseUrl = url('/');
             $donation->disease_photo = $baseUrl . '/storage/' . $request->file('disease_photo')->store('raise-donation-photo');
         }
-        if ($request->file('house_photo')) {
+        if ($request->file('sktm_photo')) {
             $baseUrl = url('/');
-            $donation->house_photo = $baseUrl . '/storage/' . $request->file('house_photo')->store('raise-donation-photo');
+            $donation->sktm_photo = $baseUrl . '/storage/' . $request->file('sktm_photo')->store('raise-donation-photo');
         }
 
         $donation->save();
@@ -161,7 +151,7 @@ class DonationController extends Controller
 
         $donation = Donation::where('user_id', $user->id)->get();
 
-        $donation->makeHidden(['user_id', 'kk', 'phone', 'address', 'ktp_photo', 'medical_photo', 'disease_photo', 'house_photo', 'created_at', 'updated_at']);
+        $donation->makeHidden(['user_id', 'ktp_photo', 'medical_photo', 'disease_photo', 'sktm_photo', 'created_at', 'updated_at']);
 
         return response()->json([
             'success' => true,
@@ -228,11 +218,6 @@ class DonationController extends Controller
     {
         $donation = Donation::where('id', $id)->first();
 
-        $donation->fullname = $request->fullname;
-        $donation->gender = $request->gender;
-        $donation->kk = $request->kk;
-        $donation->phone = $request->phone;
-        $donation->address = $request->address;
         $donation->title = $request->title;
         $donation->target_amount = $request->target_amount;
         $donation->end_date = $request->end_date;

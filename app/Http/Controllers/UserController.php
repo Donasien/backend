@@ -237,6 +237,9 @@ class UserController extends Controller
         if ($request->email) {
             $user->email = $request->email;
         }
+        if ($request->gender) {
+            $user->gender = $request->gender;
+        }
         if ($request->address) {
             $user->address = $request->address;
         }

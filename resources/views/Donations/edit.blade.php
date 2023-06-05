@@ -65,33 +65,6 @@
                                 <textarea class="form-control" rows="5" name="description">{{ $donation->description }}</textarea>
                             </div>
                         </div>
-                        <h6 class="fw-semibold my-3">Penerima Donasi</h6>
-                        <div class="row">
-                            <div class="col-md-6 col-12 mb-3">
-                                <label class="mb-1">Nama Lengkap</label>
-                                <input type="text" class="form-control" value="{{ $donation->fullname }}"
-                                    name="fullname">
-                            </div>
-                            <div class="col-md-6 col-12 mb-3">
-                                <label class="mb-1">Jenis Kelamin</label>
-                                <select class="form-select" name="gender" id="basicSelect">
-                                    <option value="Laki Laki" {{ ($donation->gender === 'Laki Laki') ? 'Selected' : '' }}>Laki Laki</option>
-                                    <option value="Perempuan" {{ ($donation->gender === 'Perempuan') ? 'Selected' : '' }}>Perempuan</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 col-12 mb-3">
-                                <label class="mb-1">Nomor Kartu Keluarga</label>
-                                <input type="text" class="form-control" value="{{ $donation->kk }}" name="kk">
-                            </div>
-                            <div class="col-md-6 col-12 mb-3">
-                                <label class="mb-1">Nomor Telepon</label>
-                                <input type="number" class="form-control" value="{{ $donation->phone }}" name="phone">
-                            </div>
-                            <div class="col-md-6 col-12 mb-3">
-                                <label class="mb-1">Alamat Lengkap</label>
-                                <input type="text" class="form-control" value="{{ $donation->address }}" name="address">
-                            </div>
-                        </div>
                         <div class="col-sm-12 d-flex justify-content-end mt-3">
                             <a href="{{ url('/donasi') }}" class="btn btn-danger me-2">Batal</a>
                             <button type="submit" class="btn btn-primary">Update</button>
