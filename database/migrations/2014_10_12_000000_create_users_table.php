@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->text('token')->nullable();
             $table->string('gender')->nullable();
-            $table->string('address')->nullable();
+            $table->text('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('kk')->nullable();
             $table->string('rekening')->nullable();
