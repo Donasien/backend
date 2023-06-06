@@ -199,6 +199,17 @@
                             </div>
                         </div>
                     </div>
+                    <h6 class="fw-semibold my-3">Hasil Deteksi Penyakit</h6>
+                    <div class="row">
+                        <div class="col-md-6 col-12 mb-3">
+                            <label class="mb-1">Alzheimer</label>
+                            <input type="text" class="form-control" value="{{ $donation->result_alzheimer }}" disabled>
+                        </div>
+                        <div class="col-md-6 col-12 mb-3">
+                            <label class="mb-1">Lung</label>
+                            <input type="text" class="form-control" value="{{ $donation->result_lung }}" disabled>
+                        </div>
+                    </div>
                     <div class="col-sm-12 d-flex justify-content-end mt-3">
                         <form action="{{ url('/donasi/tolak/' . $donation->id) }}" method="post">
                             @csrf

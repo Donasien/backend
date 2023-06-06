@@ -14,7 +14,7 @@ class DonationController extends Controller
     {
         $donation = Donation::where('status', 'accept')->get();
 
-        $donation->makeHidden(['user_id', 'ktp_photo', 'medical_photo', 'disease_photo', 'sktm_photo', 'created_at', 'updated_at']);
+        $donation->makeHidden(['user_id', 'result_alzheimer', 'result_lung', 'ktp_photo', 'medical_photo', 'disease_photo', 'sktm_photo', 'created_at', 'updated_at']);
 
         $today = Carbon::today();
 
@@ -46,7 +46,7 @@ class DonationController extends Controller
 
         $donation->days_left = $today->diffInDays($donation->end_date);
 
-        $donation->makeHidden(['user_id', 'ktp_photo', 'medical_photo', 'disease_photo', 'sktm_photo', 'created_at', 'updated_at']);
+        $donation->makeHidden(['user_id', 'result_alzheimer', 'result_lung', 'ktp_photo', 'medical_photo', 'disease_photo', 'sktm_photo', 'created_at', 'updated_at']);
         $donation->user->makeHidden(['roles', 'token', 'kk', 'rekening', 'created_at', 'updated_at']);
 
         return response()->json([
@@ -95,6 +95,8 @@ class DonationController extends Controller
         $donation->target_amount = $request->target_amount;
         $donation->end_date = $request->end_date;
         $donation->description = $request->description;
+        $donation->result_alzheimer = $request->result_alzheimer;
+        $donation->result_lung = $request->result_lung;
         if ($request->file('cover_photo')) {
             $baseUrl = url('/');
             $donation->cover_photo = $baseUrl . '/storage/' . $request->file('cover_photo')->store('raise-donation-photo');

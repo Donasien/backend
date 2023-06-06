@@ -26,6 +26,8 @@ return new class extends Migration
             $table->string('medical_photo');
             $table->string('disease_photo');
             $table->string('sktm_photo');
+            $table->string('result_alzheimer')->nullable();
+            $table->string('result_lung')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
         });
