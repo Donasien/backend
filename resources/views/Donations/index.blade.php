@@ -31,7 +31,13 @@
                                     <td>{{ $item->title }}</td>
                                     <td>{{ $item->target_amount }}</td>
                                     <td>{{ $item->latest_amount }}</td>
-                                    <td>{{ $item->days_left }} Hari</td>
+                                    <td>
+                                        @if ($item->days_left == 'Berakhir')
+                                            {{ $item->days_left }}
+                                        @else
+                                            {{ $item->days_left }} Hari
+                                        @endif
+                                    </td>
                                     <td>
                                         @if ($item->status == null)
                                             pending

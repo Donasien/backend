@@ -19,9 +19,15 @@ class DonationController extends Controller
         $today = Carbon::today();
 
         $donation = $donation->filter(function ($item) use ($today) {
-            $item->days_left = $today->diffInDays($item->end_date);
-            return $item->days_left > 0;
+            if ($today > $item->end_date) {
+                return false;
+            } else {
+                $item->days_left = $today->diffInDays($item->end_date);
+                return true;
+            }
         });
+
+        $donation = array_values($donation->toArray());
 
         return response()->json([
             'success' => true,
@@ -169,8 +175,12 @@ class DonationController extends Controller
         $today = Carbon::today();
 
         $donation = $donation->filter(function ($item) use ($today) {
-            $item->days_left = $today->diffInDays($item->end_date);
-            return $item->days_left > 0;
+            if ($today > $item->end_date) {
+                $item->days_left = 'Berakhir';
+            } else {
+                $item->days_left = $today->diffInDays($item->end_date);
+            }
+            return true;
         });
 
         return view('Donations.index', compact('donation'));
@@ -182,7 +192,11 @@ class DonationController extends Controller
 
         $today = Carbon::today();
 
-        $donation->days_left = $today->diffInDays($donation->end_date);
+        if ($today > $donation->end_date) {
+            $donation->days_left = 'Berakhir';
+        } else {
+            $donation->days_left = $today->diffInDays($donation->end_date);
+        }
 
         return view('Donations.read', compact('donation'));
     }

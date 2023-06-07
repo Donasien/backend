@@ -57,6 +57,14 @@
                         <span class="hide-menu">User</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link {{ request()->is('firstaid*') ? 'active' : '' }}" href="/firstaid" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-first-aid-kit"></i>
+                        </span>
+                        <span class="hide-menu">First Aid</span>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

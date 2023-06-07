@@ -46,7 +46,9 @@
                         </div>
                         <div class="col-md-6 col-12 mb-3">
                             <label class="mb-1">Berakhir</label>
-                            <input type="text" class="form-control" value="{{ $donation->days_left }} Hari" disabled>
+                            <input type="text" class="form-control"
+                                value="@if($donation->days_left == 'Berakhir'){{ $donation->days_left }}@else{{ $donation->days_left }} Hari @endif"
+                                disabled>
                         </div>
                         <div class="col-md-6 col-12 mb-3">
                             <label class="mb-1">Total Donasi</label>
@@ -203,7 +205,8 @@
                     <div class="row">
                         <div class="col-md-6 col-12 mb-3">
                             <label class="mb-1">Alzheimer</label>
-                            <input type="text" class="form-control" value="{{ $donation->result_alzheimer }}" disabled>
+                            <input type="text" class="form-control" value="{{ $donation->result_alzheimer }}"
+                                disabled>
                         </div>
                         <div class="col-md-6 col-12 mb-3">
                             <label class="mb-1">Lung</label>
