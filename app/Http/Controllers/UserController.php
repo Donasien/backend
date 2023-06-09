@@ -249,6 +249,9 @@ class UserController extends Controller
         if ($request->kk) {
             $user->kk = $request->kk;
         }
+        if ($request->bank) {
+            $user->bank = $request->bank;
+        }
         if ($request->rekening) {
             $user->rekening = $request->rekening;
         }

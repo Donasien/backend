@@ -60,6 +60,10 @@
                             <input type="text" class="form-control" value="{{ $user->kk }}" disabled>
                         </div>
                         <div class="col-md-6 col-12 mb-3">
+                            <label class="mb-1">Bank</label>
+                            <input type="text" class="form-control" value="{{ $user->bank }}" disabled>
+                        </div>
+                        <div class="col-md-6 col-12 mb-3">
                             <label class="mb-1">Nomor Rekening</label>
                             <input type="text" class="form-control" value="{{ $user->rekening }}" disabled>
                         </div>

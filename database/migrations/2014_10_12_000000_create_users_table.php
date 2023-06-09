@@ -23,6 +23,7 @@ return new class extends Migration
             $table->text('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('kk')->nullable();
+            $table->string('bank')->nullable();
             $table->string('rekening')->nullable();
             $table->string('photo')->nullable();
             $table->string('roles');
