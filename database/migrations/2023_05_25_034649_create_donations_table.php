@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('latest_amount')->default(0);
             $table->date('end_date');
             $table->text('description');
+            $table->string('type_disaster');
             $table->string('cover_photo');
             $table->string('ktp_photo');
             $table->string('medical_photo');

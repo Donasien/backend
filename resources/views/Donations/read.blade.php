@@ -59,6 +59,10 @@
                             <input type="text" class="form-control" value="{{ $donation->end_date }}" disabled>
                         </div>
                         <div class="col-md-6 col-12 mb-3">
+                            <label class="mb-1">Tipe Bencana/Musibah</label>
+                            <input type="text" class="form-control" value="{{ $donation->type_disaster }}" disabled>
+                        </div>
+                        <div class="col-md-6 col-12 mb-3">
                             <label class="mb-1">Status</label>
                             <input type="text" class="form-control"
                                 value="@if ($donation->status == null) pending @else {{ $donation->status }} @endif"
