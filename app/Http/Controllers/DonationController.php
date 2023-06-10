@@ -103,6 +103,7 @@ class DonationController extends Controller
         $donation->end_date = $request->end_date;
         $donation->description = $request->description;
         $donation->type_disaster = $request->type_disaster;
+        $donation->status = 'pending';
         $donation->result_alzheimer = $request->result_alzheimer;
         $donation->result_lung = $request->result_lung;
         if ($request->file('cover_photo')) {
@@ -159,20 +160,31 @@ class DonationController extends Controller
             ]);
         }
 
-        $donation = Donation::where('user_id', $user->id)->get();
+        $donation = Donation::where('user_id', $user->id)->latest()->first();
 
-        $donation->makeHidden(['user_id', 'type_disaster', 'ktp_photo', 'medical_photo', 'disease_photo', 'sktm_photo', 'created_at', 'updated_at']);
+        if (!$donation) {
+            $data['status_donation'] = null;
+        }else{
+            $data['status_donation'] = $donation->status;
+        }
+
+        if (is_null($user->gender) || is_null($user->address) || is_null($user->phone) || is_null($user->kk) || is_null($user->bank) || is_null($user->rekening)) {
+            $data['status_data'] = false;
+        } else {
+            $data['status_data'] = true;
+        }
 
         return response()->json([
             'success' => true,
             'message' => 'Load Status Donasi Berhasil',
-            'data' => $donation
+            'data' => $data
         ]);
     }
 
+
     public function data_donation()
     {
-        $donation = Donation::get();
+        $donation = Donation::latest()->get();
 
         $today = Carbon::today();
 
@@ -219,6 +231,17 @@ class DonationController extends Controller
         $donation = Donation::where('id', $id)->first();
 
         $donation->status = 'decline';
+
+        $donation->update();
+
+        return redirect('/donasi');
+    }
+
+    public function finish_donation($id)
+    {
+        $donation = Donation::where('id', $id)->first();
+
+        $donation->status = 'finish';
 
         $donation->update();
 

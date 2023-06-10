@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/donasi/{id}', [DonationController::class, 'read_donation']);
     Route::put('/donasi/terima/{id}', [DonationController::class, 'accept_donation']);
     Route::put('/donasi/tolak/{id}', [DonationController::class, 'decline_donation']);
+    Route::put('/donasi/berakhir/{id}', [DonationController::class, 'finish_donation']);
     Route::get('/donasi/edit/{id}', [DonationController::class, 'edit_donation']);
     Route::put('/donasi/edit/{id}', [DonationController::class, 'update_donation']);
     Route::get('/donatur', [DonorController::class, 'data_donor']);

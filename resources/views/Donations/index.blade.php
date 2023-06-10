@@ -38,13 +38,7 @@
                                             {{ $item->days_left }} Hari
                                         @endif
                                     </td>
-                                    <td>
-                                        @if ($item->status == null)
-                                            pending
-                                        @else
-                                            {{ $item->status }}
-                                        @endif
-                                    </td>
+                                    <td>{{ $item->status }}</td>
                                     <td class="d-flex align-items-center">
                                         <a href="{{ url('/donasi/' . $item->id) }}" class="btn btn-primary me-2"><i
                                                 class="ti ti-eye"></i></a>

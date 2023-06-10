@@ -47,7 +47,7 @@
                         <div class="col-md-6 col-12 mb-3">
                             <label class="mb-1">Berakhir</label>
                             <input type="text" class="form-control"
-                                value="@if($donation->days_left == 'Berakhir'){{ $donation->days_left }}@else{{ $donation->days_left }} Hari @endif"
+                                value="@if ($donation->days_left == 'Berakhir') {{ $donation->days_left }}@else{{ $donation->days_left }} Hari @endif"
                                 disabled>
                         </div>
                         <div class="col-md-6 col-12 mb-3">
@@ -64,9 +64,7 @@
                         </div>
                         <div class="col-md-6 col-12 mb-3">
                             <label class="mb-1">Status</label>
-                            <input type="text" class="form-control"
-                                value="@if ($donation->status == null) pending @else {{ $donation->status }} @endif"
-                                disabled>
+                            <input type="text" class="form-control" value="{{ $donation->status }}" disabled>
                         </div>
                         <div class="col-md-6 col-12 mb-3">
                             <label class="mb-1">Deskripsi</label>
@@ -226,7 +224,12 @@
                         <form action="{{ url('/donasi/terima/' . $donation->id) }}" method="post">
                             @csrf
                             @method('put')
-                            <button type="submit" class="btn btn-primary">Terima</button>
+                            <button type="submit" class="btn btn-primary me-2">Terima</button>
+                        </form>
+                        <form action="{{ url('/donasi/berakhir/' . $donation->id) }}" method="post">
+                            @csrf
+                            @method('put')
+                            <button type="submit" class="btn btn-secondary">Akhiri</button>
                         </form>
                     </div>
                 </div>
