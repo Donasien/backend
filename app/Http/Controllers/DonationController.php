@@ -276,4 +276,11 @@ class DonationController extends Controller
 
         return redirect('/donasi');
     }
+
+    public function delete_donation($id)
+    {
+        $donation = Donation::findOrFail($id);
+        $donation->delete();
+        return redirect()->back();
+    }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DonorController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\FirstAidController;
+use App\Models\Donation;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/donasi/berakhir/{id}', [DonationController::class, 'finish_donation']);
     Route::get('/donasi/edit/{id}', [DonationController::class, 'edit_donation']);
     Route::put('/donasi/edit/{id}', [DonationController::class, 'update_donation']);
+    Route::delete('/donasi/{id}', [DonationController::class, 'delete_donation']);
     Route::get('/donatur', [DonorController::class, 'data_donor']);
     Route::get('/datauser', [UserController::class, 'data_user']);
     Route::get('/datauser/{id}', [UserController::class, 'read_user']);

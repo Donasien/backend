@@ -42,8 +42,14 @@
                                     <td class="d-flex align-items-center">
                                         <a href="{{ url('/donasi/' . $item->id) }}" class="btn btn-primary me-2"><i
                                                 class="ti ti-eye"></i></a>
-                                        <a href="{{ url('/donasi/edit/' . $item->id) }}" class="btn btn-secondary"><i
+                                        <a href="{{ url('/donasi/edit/' . $item->id) }}" class="btn btn-secondary me-2"><i
                                                 class="ti ti-edit"></i></a>
+                                        <form action="{{ url('/donasi/' . $item->id) }}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <button onclick="return confirm('Yakin Untuk Menghapus?')" type="submit"
+                                                class="btn btn-danger delete"><i class="ti ti-trash"></i></button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
