@@ -11,12 +11,22 @@ class Donation extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-    
-    public function user(){
+
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
-    
-    public function donor(){
+
+    public function donor()
+    {
         return $this->hasMany(Donor::class);
+    }
+
+    public function updateStatus()
+    {
+        if ($this->end_date <= now()->toDateString()) {
+            $this->status = 'finish';
+            $this->save();
+        }
     }
 }

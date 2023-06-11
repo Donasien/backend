@@ -14,12 +14,16 @@ class DonationController extends Controller
     {
         $donation = Donation::where('status', 'accept')->get();
 
+        foreach ($donation as $item) {
+            $item->updateStatus();
+        }
+
         $donation->makeHidden(['user_id', 'type_disaster', 'result_alzheimer', 'result_lung', 'ktp_photo', 'medical_photo', 'disease_photo', 'sktm_photo', 'created_at', 'updated_at']);
 
         $today = Carbon::today();
 
         $donation = $donation->filter(function ($item) use ($today) {
-            if ($today > $item->end_date) {
+            if ($today >= $item->end_date) {
                 return false;
             } else {
                 $item->days_left = $today->diffInDays($item->end_date);
@@ -164,7 +168,7 @@ class DonationController extends Controller
 
         if (!$donation) {
             $data['status_donation'] = null;
-        }else{
+        } else {
             $data['status_donation'] = $donation->status;
         }
 
