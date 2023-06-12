@@ -18,11 +18,8 @@ The backend donasien app is built using Laravel framework. It includes an API ro
 <br>
 Additionally, Laravel provides a landing page and a web admin interface. The web admin can view, edit, and delete various data stored in the database. For example, they can edit donation data to mark a fundraising campaign as accepted. We deploy this Laravel application on a Compute Engine, utilizing a Persistent Disk for storage, and MySQL in a VM as the database. The database in the VM is also connected to Flask from the machine learning path, making the Flask API private. Therefore, anyone who wants to access the Flask API must have a token that will be validated in the database. Lastly, we deploy Flask on Cloud Run, which allows the application to be hosted and run in a scalable manner
 
-## API URL
+## WEB & API URL
 [Donasien Web & API URL](https://donasien.me/)
-
-<br>
-
 [Machine Learning API](https://ml-api-rt4pbfoggq-et.a.run.app/)
 
 <!-- [News API](https://newsapi.org/v2/) -->
