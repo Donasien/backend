@@ -64,7 +64,6 @@ class FirstAidController extends Controller
     public function first_aid(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'token' => 'required',
             'wound_code' => 'required',
         ]);
 
@@ -73,16 +72,6 @@ class FirstAidController extends Controller
                 'success' => false,
                 'message' => 'Load Pertolongan Pertama Gagal',
                 'data' => $validator->errors()
-            ]);
-        }
-
-        $user = User::where('token', $request->token)->first();
-
-        if (!$user) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Token Tidak Ditemukan',
-                'data' => null
             ]);
         }
         
