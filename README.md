@@ -10,7 +10,7 @@ Here is our repository for Bangkit 2023 Capstone project - Cloud Computing
 | Architecture design   | API development      | Web Admin Frontend development  | Application deployment  |
 
 ## Cloud Architecture
-<!-- ![CloudArchitecture](https://github.com/donasien/backend/assets/architecture.png) -->
+![CloudArchitecture](https://github.com/Donasien/backend/blob/assets/img/Architecture_GCP.png)
 
 ## Backend Description
 The backend donasien app is built using Laravel framework. It includes an API route that is specifically designed to be used by the Android application. The API is developed using MySQL as the underlying database. In our database, we store various data used by the application. We have a "users" table that stores user data fetched from Firebase Authentication. The "donations" table contains data submitted by users for their donations. The "donors" table stores information about the donors, and the "first_aids" table is used by the admin to input data regarding first aid for minor injuries, which can be scanned later.
@@ -56,8 +56,7 @@ We implement API protection using Firebase tokens to restrict access to authoriz
 * Next type ```php artisan migrate:fresh --seed``` and hit enter
 * Then type ```php artisan serve``` to start the server
 * It will run on http://localhost:8000/
-
-<!-- ![RunCode](https://github.com/donasien/backend/assets/code.png) -->
+![Run](https://github.com/Donasien/backend/blob/assets/img/Run.png)
 
 ## How to use the endpoint
 * To use this endpoint, need to use a special token that our team provided
@@ -65,6 +64,5 @@ We implement API protection using Firebase tokens to restrict access to authoriz
 * Enter URL request bar with https://donasien.me/api/profile
 * Select method GET then Send the request
 * If success then postman will return your profile
+![Endpoint](https://github.com/Donasien/backend/blob/assets/img/Endpoint.png)
 * For complete Documentation please visit [Donasien Documentation API](#api)
-
-<!-- ![UseEndpoint](https://github.com/donasien/backend/assets/endpoint.png) -->
