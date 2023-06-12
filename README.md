@@ -55,7 +55,7 @@ We implement API protection using Firebase tokens to restrict access to authoriz
 * It will run on http://localhost:8000/
 
 <!-- ![RunCode](https://github.com/donasien/backend/assets/code.png) -->
-<br>
+
 ## How to use the endpoint
 * To use this endpoint, need to use a special token that our team provided
 * After getting the token then Open a Postman Application and fill the token in param
