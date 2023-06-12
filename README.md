@@ -13,15 +13,18 @@ Here is our repository for Bangkit 2023 Capstone project - Cloud Computing
 <!-- ![CloudArchitecture](https://github.com/donasien/backend/assets/architecture.png) -->
 
 ## Backend Description
-The backend of this donation application is built using Laravel framework. It includes an API route that is specifically designed to be used by the Android application. The API is developed using MySQL as the underlying database. In our database, we store various data used by the application. We have a "users" table that stores user data fetched from Firebase Authentication. The "donations" table contains data submitted by users for their donations. The "donors" table stores information about the donors, and the "first_aids" table is used by the admin to input data regarding first aid for minor injuries, which can be scanned later.
+The backend donasien app is built using Laravel framework. It includes an API route that is specifically designed to be used by the Android application. The API is developed using MySQL as the underlying database. In our database, we store various data used by the application. We have a "users" table that stores user data fetched from Firebase Authentication. The "donations" table contains data submitted by users for their donations. The "donors" table stores information about the donors, and the "first_aids" table is used by the admin to input data regarding first aid for minor injuries, which can be scanned later.
 <br>
-Additionally, Laravel provides a landing page and a web admin interface. The web admin can view, edit, and delete various data stored in the database. For example, they can edit donation data to mark a fundraising campaign as accepted. We deploy this Laravel application on a Compute Engine, utilizing a Persistent Disk for storage, and MySQL in a VM as the database. The database in the VM is also connected to Flask from the machine learning path, making the Flask API private. Therefore, anyone who wants to access the Flask API must have a token that will be validated in the database.
 <br>
-Lastly, we deploy Flask on Cloud Run, which allows the application to be hosted and run in a scalable manner.
+Additionally, Laravel provides a landing page and a web admin interface. The web admin can view, edit, and delete various data stored in the database. For example, they can edit donation data to mark a fundraising campaign as accepted. We deploy this Laravel application on a Compute Engine, utilizing a Persistent Disk for storage, and MySQL in a VM as the database. The database in the VM is also connected to Flask from the machine learning path, making the Flask API private. Therefore, anyone who wants to access the Flask API must have a token that will be validated in the database. Lastly, we deploy Flask on Cloud Run, which allows the application to be hosted and run in a scalable manner
 
 ## API URL
 [Donasien Web & API URL](https://donasien.me/)
+
+<br>
+
 [Machine Learning API](https://ml-api-rt4pbfoggq-et.a.run.app/)
+
 <!-- [News API](https://newsapi.org/v2/) -->
 
 ## <a name="api"></a>Donasien Documentation API
@@ -62,7 +65,6 @@ We implement API protection using Firebase tokens to restrict access to authoriz
 * Enter URL request bar with https://donasien.me/api/profile
 * Select method GET then Send the request
 * If success then postman will return your profile
+* For complete Documentation please visit [Donasien Documentation API](#api)
 
 <!-- ![UseEndpoint](https://github.com/donasien/backend/assets/endpoint.png) -->
-
-* For complete Documentation please visit [Donasien Documentation API](#api)
