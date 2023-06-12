@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\FirstAid;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class FirstAidController extends Controller
 {
@@ -57,5 +59,49 @@ class FirstAidController extends Controller
         $firstaid->update();
 
         return redirect('/firstaid');
+    }
+
+    public function first_aid(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'token' => 'required',
+            'wound_code' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Load Pertolongan Pertama Gagal',
+                'data' => $validator->errors()
+            ]);
+        }
+
+        $user = User::where('token', $request->token)->first();
+
+        if (!$user) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Token Tidak Ditemukan',
+                'data' => null
+            ]);
+        }
+        
+        $firstaid = FirstAid::where('wound_code', $request->wound_code)->first();
+
+        if (!$firstaid) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Pertolongan Pertama Tidak Ditemukan',
+                'data' => null
+            ]);
+        }
+
+        $firstaid->makeHidden(['id', 'wound_code', 'created_at', 'updated_at']);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Load Pertolongan Pertama Berhasil',
+            'data' => $firstaid,
+        ]);
     }
 }
