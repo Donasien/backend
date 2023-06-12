@@ -23,16 +23,6 @@ return new class extends Migration
             $table->string('medicine_image3')->nullable();
             $table->string('medicine_image4')->nullable();
             $table->string('medicine_image5')->nullable();
-            $table->string('medicine_image6')->nullable();
-            $table->string('medicine_image7')->nullable();
-            $table->string('medicine_image8')->nullable();
-            $table->string('medicine_image9')->nullable();
-            $table->string('medicine_image10')->nullable();
-            $table->string('medicine_image11')->nullable();
-            $table->string('medicine_image12')->nullable();
-            $table->string('medicine_image13')->nullable();
-            $table->string('medicine_image14')->nullable();
-            $table->string('medicine_image15')->nullable();
             $table->timestamps();
         });
     }

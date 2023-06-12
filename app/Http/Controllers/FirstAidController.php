@@ -53,46 +53,6 @@ class FirstAidController extends Controller
             $baseUrl = url('/');
             $firstaid->medicine_image5 = $baseUrl . '/storage/' . $request->file('medicine_image5')->store('medicine-image');
         }
-        if ($request->file('medicine_image6')) {
-            $baseUrl = url('/');
-            $firstaid->medicine_image6 = $baseUrl . '/storage/' . $request->file('medicine_image6')->store('medicine-image');
-        }
-        if ($request->file('medicine_image7')) {
-            $baseUrl = url('/');
-            $firstaid->medicine_image7 = $baseUrl . '/storage/' . $request->file('medicine_image7')->store('medicine-image');
-        }
-        if ($request->file('medicine_image8')) {
-            $baseUrl = url('/');
-            $firstaid->medicine_image8 = $baseUrl . '/storage/' . $request->file('medicine_image8')->store('medicine-image');
-        }
-        if ($request->file('medicine_image9')) {
-            $baseUrl = url('/');
-            $firstaid->medicine_image9 = $baseUrl . '/storage/' . $request->file('medicine_image9')->store('medicine-image');
-        }
-        if ($request->file('medicine_image10')) {
-            $baseUrl = url('/');
-            $firstaid->medicine_image10 = $baseUrl . '/storage/' . $request->file('medicine_image10')->store('medicine-image');
-        }
-        if ($request->file('medicine_image11')) {
-            $baseUrl = url('/');
-            $firstaid->medicine_image11 = $baseUrl . '/storage/' . $request->file('medicine_image11')->store('medicine-image');
-        }
-        if ($request->file('medicine_image12')) {
-            $baseUrl = url('/');
-            $firstaid->medicine_image12 = $baseUrl . '/storage/' . $request->file('medicine_image12')->store('medicine-image');
-        }
-        if ($request->file('medicine_image13')) {
-            $baseUrl = url('/');
-            $firstaid->medicine_image13 = $baseUrl . '/storage/' . $request->file('medicine_image13')->store('medicine-image');
-        }
-        if ($request->file('medicine_image14')) {
-            $baseUrl = url('/');
-            $firstaid->medicine_image14 = $baseUrl . '/storage/' . $request->file('medicine_image14')->store('medicine-image');
-        }
-        if ($request->file('medicine_image15')) {
-            $baseUrl = url('/');
-            $firstaid->medicine_image15 = $baseUrl . '/storage/' . $request->file('medicine_image15')->store('medicine-image');
-        }
 
         $firstaid->update();
 
