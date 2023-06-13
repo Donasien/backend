@@ -57,7 +57,7 @@ class DonationController extends Controller
         $donation->days_left = $today->diffInDays($donation->end_date);
 
         $donation->makeHidden(['user_id', 'type_disaster', 'result_alzheimer', 'result_lung', 'ktp_photo', 'medical_photo', 'disease_photo', 'sktm_photo', 'created_at', 'updated_at']);
-        $donation->user->makeHidden(['roles', 'token', 'kk', 'rekening', 'created_at', 'updated_at']);
+        $donation->user->makeHidden(['roles', 'bank', 'token', 'kk', 'rekening', 'created_at', 'updated_at']);
 
         return response()->json([
             'success' => true,

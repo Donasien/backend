@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Donor;
 use App\Models\Donation;
+use App\Models\BloodDonor;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -46,5 +47,9 @@ class User extends Authenticatable
 
     public function donor(){
         return $this->hasMany(Donor::class);
+    }
+
+    public function blooddonor(){
+        return $this->hasMany(BloodDonor::class);
     }
 }

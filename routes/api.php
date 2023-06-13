@@ -1,12 +1,12 @@
 <?php
 
-use App\Models\FirstAid;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DonorController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\FirstAidController;
+use App\Http\Controllers\BloodDonorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +32,6 @@ Route::get('/donation-status', [DonationController::class, 'donation_status']);
 Route::get('/donation-history', [DonorController::class, 'donation_history']);
 Route::post('/donate', [DonorController::class, 'donate']);
 Route::get('/first-aid', [FirstAidController::class, 'first_aid']);
+Route::get('/blood-donor', [BloodDonorController::class, 'all_blood']);
+Route::post('/blood-donor', [BloodDonorController::class, 'submit_blood']);
+Route::delete('/blood-donor', [BloodDonorController::class, 'delete_blood']);
