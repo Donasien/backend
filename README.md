@@ -23,20 +23,20 @@ Additionally, Laravel provides a landing page and a web admin interface. The web
 
 [Machine Learning API](https://ml-api-rt4pbfoggq-et.a.run.app/)
 
-<!-- [News API](https://newsapi.org/v2/) -->
+[News API](https://newsapi.org)
 
 ## <a name="api"></a>Donasien Documentation API
 ### Endpoint Documentation
 [Donasien Endpoint Documentation](https://documenter.getpostman.com/view/27663700/2s93sf1VvX)
 
-<!-- ### Article API
+### Article API
 [Article API Documentation](https://newsapi.org/docs/endpoints/everything)
 <br>
 |  Endpoint |  Method	     |      Query Params |           Description          |
 | :----: | :------------: | :-----------------: | :------------------------: |
 | /v2/everything | GET   | q, sortBy and apiKey      | HTTP GET REQUEST Show all of the Article about Health  |
 
-We opt for this API due to its ease of implementation and cost-effectiveness, as it doesn't impose additional system load or incur any extra expenses on the Google Cloud Platform -->
+We opt for this API due to its ease of implementation and cost-effectiveness, as it doesn't impose additional system load or incur any extra expenses on the Google Cloud Platform
 
 ### Security
 We implement API protection using Firebase tokens to restrict access to authorized users only. These tokens provide secure authentication, ensuring that only valid and authenticated users can utilize the API
