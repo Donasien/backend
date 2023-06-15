@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Donor;
 use App\Models\Donation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -279,7 +280,11 @@ class DonationController extends Controller
 
     public function delete_donation($id)
     {
-        $donation = Donation::findOrFail($id);
+        $donation = Donation::where('id', $id)->first();
+        $donor = Donor::where('donation_id', $donation->id)->get();
+
+        Donor::destroy($donor);
+
         $donation->delete();
         return redirect()->back();
     }

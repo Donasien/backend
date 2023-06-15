@@ -24,7 +24,7 @@
                                     <img src="{{ asset('assets/images/logos/donasien-logo.png') }}" width="180"
                                         alt="">
                                 </a>
-                                <p class="text-center">Your Social Campaigns</p>
+                                <p class="text-center">Changing Lives Through Giving</p>
                                 @if (session('failed'))
                                     <div class="alert alert-danger alert-dismissible show fade">
                                         {{ session('failed') }}
@@ -32,7 +32,7 @@
                                             aria-label="Close"></button>
                                     </div>
                                 @endif
-                                <form action="{{ url('/') }}" method="POST">
+                                <form action="{{ url('/login') }}" method="POST">
                                     @csrf
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email</label>

@@ -29,8 +29,18 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->title }}</td>
-                                    <td>{{ $item->target_amount }}</td>
-                                    <td>{{ $item->latest_amount }}</td>
+                                    @php
+                                        $number = $item->target_amount;
+                                        $formattedNumber = number_format($number, 0, ',', '.');
+                                        $target_rupiah = 'Rp ' . $formattedNumber;
+                                    @endphp
+                                    <td>{{ $target_rupiah }}</td>
+                                    @php
+                                        $number2 = $item->latest_amount;
+                                        $formattedNumber2 = number_format($number2, 0, ',', '.');
+                                        $latest_rupiah = 'Rp ' . $formattedNumber2;
+                                    @endphp
+                                    <td>{{ $latest_rupiah }}</td>
                                     <td>
                                         @if ($item->days_left == 'Berakhir')
                                             {{ $item->days_left }}

@@ -42,7 +42,12 @@
                         </div>
                         <div class="col-md-6 col-12 mb-3">
                             <label class="mb-1">Target Donasi</label>
-                            <input type="text" class="form-control" value="{{ $donation->target_amount }}" disabled>
+                            @php
+                                $number = $donation->target_amount;
+                                $formattedNumber = number_format($number, 0, ',', '.');
+                                $target_rupiah = 'Rp ' . $formattedNumber;
+                            @endphp
+                            <input type="text" class="form-control" value="{{ $target_rupiah }}" disabled>
                         </div>
                         <div class="col-md-6 col-12 mb-3">
                             <label class="mb-1">Berakhir</label>
@@ -52,7 +57,12 @@
                         </div>
                         <div class="col-md-6 col-12 mb-3">
                             <label class="mb-1">Total Donasi</label>
-                            <input type="text" class="form-control" value="{{ $donation->latest_amount }}" disabled>
+                            @php
+                                $number2 = $donation->latest_amount;
+                                $formattedNumber2 = number_format($number2, 0, ',', '.');
+                                $latest_rupiah = 'Rp ' . $formattedNumber2;
+                            @endphp
+                            <input type="text" class="form-control" value="{{ $latest_rupiah }}" disabled>
                         </div>
                         <div class="col-md-6 col-12 mb-3">
                             <label class="mb-1">Tanggal Berakhir</label>

@@ -24,7 +24,12 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->fullname }}</td>
                                     <td>{{ $item->donation->title }}</td>
-                                    <td>{{ $item->donate }}</td>
+                                    @php
+                                        $number = $item->donate;
+                                        $formattedNumber = number_format($number, 0, ',', '.');
+                                        $jumlah_donasi = 'Rp ' . $formattedNumber;
+                                    @endphp
+                                    <td>{{ $jumlah_donasi }}</td>
                                     <td class="d-flex align-items-center">
                                         <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
                                             data-bs-target="{{ '#fotosampul' . $item->id }}">
@@ -40,7 +45,11 @@
                                                             aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <textarea class="form-control" rows="10" disabled> @if ($item->message == null) Tidak Ada Pesan Yang Dikirimkan @else {{ $item->message }} @endif </textarea>
+                                                        <textarea class="form-control" rows="10" disabled> @if ($item->message == null)
+Tidak Ada Pesan Yang Dikirimkan
+@else
+{{ $item->message }}
+@endif </textarea>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-danger"

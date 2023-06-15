@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users')->insert([
             'fullname' => 'Admin',
-            'email' => 'admindonasien@gmail.com',
+            'email' => 'donasien.bangkit@gmail.com',
             'password' => bcrypt('admin01'),
             'roles' => 'admin',
         ]);
@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
             'wound_name' => 'Luka Lecet',
             'first_aid' => 'Lorem Ipsum',
         ]);
-        
+
         DB::table('first_aids')->insert([
             'wound_code' => 'luka_bakar',
             'wound_name' => 'Luka Bakar',

@@ -277,6 +277,15 @@ class UserController extends Controller
         ]);
     }
 
+    public function landing_page()
+    {
+        $user = User::where('roles', 'user')->get();
+        $donation = Donation::get();
+        $donor = Donor::get();
+
+        return view('Home.index', compact('user', 'donation', 'donor'));
+    }
+
     public function login_admin()
     {
         return view('Login.login');
@@ -302,7 +311,7 @@ class UserController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/');
+        return redirect('/login');
     }
 
     public function dashboard_admin()
@@ -323,7 +332,18 @@ class UserController extends Controller
 
     public function delete_user($id)
     {
-        $user = User::findOrFail($id);
+        $user = User::where('id', $id)->first();
+        $donation = Donation::where('user_id', $user->id)->get();
+        $donor = Donor::where('user_id', $user->id)->get();
+
+        foreach ($donation as $item) {
+            $donors = Donor::where('donation_id', $item->id)->get();
+            Donor::destroy($donors);
+        }
+
+        Donation::destroy($donation);
+        Donor::destroy($donor);
+
         $user->delete();
         return redirect()->back();
     }
