@@ -78,7 +78,7 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a href="#">Home</a></li>
-                                        <li><a href="#reason">Reason</a></li>
+                                        <li><a href="#target">Target</a></li>
                                         <li><a href="#activities">Activities</a></li>
                                         <li><a href="#news">News</a></li>
                                         <li><a href="#team">Our Teams</a></li>
@@ -104,7 +104,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-8">
                         <div class="slider_text ">
-                            <span>Donasien.</span>
+                            <span class="mt-lg-0 mt-5">Donasien</span>
                             <h3> Changing Lives through Giving</h3>
                             <p>Donasien menghubungkan para pendonor dengan orang-orang yang membutuhkan dukungan medis.
                                 Kami memverifikasi kondisi pasien dan memberikan analisis penyakit, memastikan donasi
@@ -124,12 +124,12 @@
     <!-- slider_area_end -->
 
     <!-- reson_area_start  -->
-    <div id="reason" class="reson_area section_padding">
+    <div id="target" class="reson_area section_padding">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="section_title text-center mb-55">
-                        <h3><span>Reason of Helping</span></h3>
+                        <h3><span>Target Market</span></h3>
                     </div>
                 </div>
             </div>
